@@ -36,7 +36,14 @@ function    get_random_message(m_tab) {
     return n_mess
 }
 
+function    get_cur_green() {
+    for (let i = 0; items_tab[i]; i++)
+        if (items_tab[i].style.background === "green")
+            return items_tab[i];
+}
+
 new_green(0);
+
 for (i = 0; items_tab[i]; i++) {
     items_tab[i].addEventListener("click", function() {
         console.log(`Color is : ${this.id}`)
@@ -50,6 +57,8 @@ for (i = 0; items_tab[i]; i++) {
         else {
             console.log("else")
             document.getElementById("message").innerHTML = get_random_message(m_list_ko);
+            let cur = get_cur_green();
+            cur.innerHTML = img_cat_speak;
         }
     });
     // items_tab[i].addEventListener("mouseover", function() {
