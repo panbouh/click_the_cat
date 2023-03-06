@@ -4,6 +4,15 @@
 let         items_tab = document.getElementsByClassName("item");
 let         m_list_ok = ["Weell Donne ! ~", "Good job !", "Another time?", "Not so hard !"];
 let         m_list_ko = ["Cheh !", "Im not here !", "Come on ! Try again", "Missed."];
+const       img_cat = '<img src="img/cat.png" alt="potichat"></img>'
+const       img_cat_speak = '<img src="img/cat-speak.png" alt="potichat"></img>'
+const       img_cat_hover = '<img src="img/cat-hover.png" alt="potichat">'
+const       img_cat_speak_hover = '<img src="img/cat-speak-hover.png" alt="potichat"></img>'
+
+// const       img_cat = "url('img/cat.png')"
+// const       img_cat_speak = '<img src="img/cat-speak.png" alt="potichat"></img>'
+// const       img_cat_hover = '<img src="img/cat-hover.png" alt="potichat">'
+// const       img_cat_speak_hover = '<img src="img/cat-speak-hover.png" alt="potichat"></img>'
 
 function    new_green(cur_id) {
     let     nb; 
@@ -13,8 +22,9 @@ function    new_green(cur_id) {
         nb = Math.floor(Math.random() * items_tab.length + 1);
     while (nb == 0 || ('i' + nb) == cur_id);
     n_green = document.getElementById('i'+ nb);
-    n_green.style.backgroundColor = "green";
-    n_green.innerHTML = '<img src="img/cat.pnj" alt="potichat">';
+    n_green.style.background = "green";
+    // n_green.style.background = img_cat;
+    n_green.innerHTML = img_cat;
 }
 
 function    get_random_message(m_tab) {
@@ -28,13 +38,12 @@ function    get_random_message(m_tab) {
 
 new_green(0);
 for (i = 0; items_tab[i]; i++) {
-
     items_tab[i].addEventListener("click", function() {
         console.log(`Color is : ${this.id}`)
-        if (this.style.backgroundColor === "green") {
+        if (this.style.background === "green") {
             console.log("if");
             document.getElementById("message").innerHTML = get_random_message(m_list_ok);
-            this.style.backgroundColor = 'bisque';
+            this.style.background = 'bisque';
             this.innerHTML = ""
             new_green(this.id);
         }
@@ -43,4 +52,14 @@ for (i = 0; items_tab[i]; i++) {
             document.getElementById("message").innerHTML = get_random_message(m_list_ko);
         }
     });
+    // items_tab[i].addEventListener("mouseover", function() {
+    //     if (this.innerHTML)
+    //         this.innerHTML = img_cat_hover;
+
+    // });
+    // items_tab[i].addEventListener("mouseout", function() {
+    //     if (this.innerHTML)
+    //     this.innerHTML = img_cat;
+
+    // });
 };

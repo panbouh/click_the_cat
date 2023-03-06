@@ -29,11 +29,10 @@ h1, p {
 img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 .item {
-    width: 1fr;
-    height: 1fr;
     border: solid;
 }
 
@@ -43,7 +42,3 @@ img {
     align-self: flex-end;
     margin-right: 1em;
 }
-
-/* .item:hover {
-    background-color: #ffc783;
-} */
